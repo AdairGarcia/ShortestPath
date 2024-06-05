@@ -10,45 +10,45 @@
             href="../styles/index.css"
     />
 
+
 </head>
 <body>
 
-    <div class="container mx-auto p-2">
-        <h1>Ruta más corta</h1>
-        <p class="text-danger-emphasis">djkasbhhjdjasd</p>
+    <figure class="text-center p-3 m-3">
+        <blockquote class="blockquote">
+            <div class="container">
+                <h1 class="fw-bold fst-italic h1">Ruta más corta</h1>
+            </div>        </blockquote>
+        <figcaption class="blockquote-footer">
+            García Torres Adair
+        </figcaption>
+        <figcaption class="blockquote-footer">
+            vamp
+        </figcaption>
+    </figure>
+
+    <div class="container text-center align-items-center">
+        <form class="row g-3" id="tablaForm">
+            <div class="col">
+                <label class="form-label" for="nodoCount"> Cantidad de nodos: </label>
+            </div>
+
+            <div class="col">
+                <input class="form-control" type="number" id="nodoCount" name="nodoCount" min="1" required>
+            </div>
+            <div class="col">
+                <button class="btn btn-light" type="submit">Generar tabla</button>
+            </div>
+        </form>
     </div>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-        </tr>
-        </thead>
-        <tbody class="table-group-divider">
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        </tbody>
-    </table>
 
 
+    <div class="table-responsive" id="tablaContainer"></div>
 
+    <script
+            type="text/javascript"
+            src="../js/GenerarMatriz.js"
+    ></script>
 </body>
 </html>
