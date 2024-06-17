@@ -13,8 +13,10 @@ export function shortestDist(matrix,N)
     // dist[i] is going to store shortest
     // distance from node i to node N-1.
     let dist = new Array(N);
+    let path = new Array(N);
 
     dist[N - 1] = 0;
+    
 
     // Calculating shortest path for
     // rest of the nodes
@@ -24,6 +26,7 @@ export function shortestDist(matrix,N)
         // Initialize distance from i to
         // destination (N-1)
         dist[i] = INF;
+        path[i] = -1;
 
         // Check all nodes of next stages
         // to find shortest distance from
@@ -40,12 +43,26 @@ export function shortestDist(matrix,N)
             // distance to target through j.
             // and compare with minimum distance
             // so far.
-            dist[i] = Math.min(dist[i], matrix[i][j]
-                + dist[j]);
+            if (dist[i] > matrix[i][j] + dist[j]) {
+                dist[i] = matrix[i][j] + dist[j];
+                path[i] = j;
+            }
         }
     }
-    // console.log(`distnacia más corta: ${dist[0]}`);
-    console.log(dist[0]);
+
+    let caminoOptimo = [];
+    let nodoActual = 0;
+
+    for (let i = 0; i < N; i++) {
+        if (nodoActual == -1) {
+            break;
+        }
+        caminoOptimo.push(nodoActual);
+        nodoActual = path[nodoActual];
+    }
+
+    console.log(`Distancia más corta: ${dist[0]}`);
+    console.log(`Ruta más corta: ${caminoOptimo.join(' -> ')}`);
     return dist[0];
 }
 
