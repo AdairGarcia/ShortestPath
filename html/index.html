@@ -9,6 +9,8 @@
             type="text/css"
             href="../styles/index.css"
     />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
 
 
 </head>
@@ -46,9 +48,16 @@
 
     <div class="table-responsive" id="tablaContainer"></div>
 
-    <div class="sp-button">
-        <button id="guardarDatos" class="btn btn-light" type="submit">Encontrar ruta más corta</button>
-    </div>
+
+        <div class="sp-button">
+            <button id="guardarDatos" class="btn btn-light" type="submit">Encontrar ruta más corta</button>
+        </div>
+        
+        <div class="opResult">
+            <h4 id="resultado"></h4>
+        </div>
+
+
 
     <script
             type="module"

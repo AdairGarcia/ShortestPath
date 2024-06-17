@@ -4,4 +4,12 @@
 .sp-button{
     margin-top: 12%;
     text-align: center;
+    margin-top: 10px;
+}
+
+.opResult{
+    margin-top: 12%;
+    text-align: center;
+    margin-top: 10px;
+    color: red;
 }

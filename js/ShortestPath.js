@@ -2,7 +2,6 @@
 // in a multistage graph.
 
 
-
 let INF = Number.MAX_VALUE;
 
 // Returns shortest distance from 0 to
@@ -16,6 +15,7 @@ export function shortestDist(matrix,N)
     let path = new Array(N);
 
     dist[N - 1] = 0;
+    path [N-1] = -1;
     
 
     // Calculating shortest path for
@@ -49,6 +49,10 @@ export function shortestDist(matrix,N)
             }
         }
     }
+    if(dist[0] == INF){
+        console.log('No hay camino del nodo de inicio al nodo final');
+        return -1;
+    }
 
     let caminoOptimo = [];
     let nodoActual = 0;
@@ -57,13 +61,13 @@ export function shortestDist(matrix,N)
         if (nodoActual == -1) {
             break;
         }
-        caminoOptimo.push(nodoActual);
+        caminoOptimo.push(nodoActual+1);
         nodoActual = path[nodoActual];
     }
 
-    console.log(`Distancia más corta: ${dist[0]}`);
-    console.log(`Ruta más corta: ${caminoOptimo.join(' -> ')}`);
-    return dist[0];
+    
+    return[ dist[0],caminoOptimo.join(' -> ')]
+    
 }
 
 

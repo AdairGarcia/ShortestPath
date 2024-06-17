@@ -1,4 +1,5 @@
 import { shortestDist } from './ShortestPath.js'
+import { renderizar } from './render.js';
 
 
 document.getElementById('tablaForm').addEventListener('submit', function(event) {
@@ -74,5 +75,16 @@ document.getElementById('guardarDatos').addEventListener('click',
             }
             matrix.push(row);
         }
-        shortestDist(matrix,nodeCount);
+        renderizar(matrix,500);
+        //console.log(shortestDist(matrix,nodeCount));   
+
+        const [distancia,ruta] = shortestDist(matrix,nodeCount);
+        console.log(distancia,ruta);
+
+        // Mostrar los resultados en el div con id "resultado"
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = `Distancia: ${distancia}<br>Ruta: ${ruta}`;
+
+        renderizar(matrix,500);
+
 });
