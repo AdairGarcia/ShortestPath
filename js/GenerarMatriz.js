@@ -58,7 +58,6 @@ function generateTable(nodeCount) {
     tableContainer.appendChild(table);
 
     // Mostrar botón para guardar datos
-    document.getElementById('guardarDatos').style.display = 'block';
 }
 
 document.getElementById('guardarDatos').addEventListener('click', 

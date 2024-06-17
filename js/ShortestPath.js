@@ -50,7 +50,11 @@ export function shortestDist(matrix,N)
         }
     }
     if(dist[0] == INF){
-        console.log('No hay camino del nodo de inicio al nodo final');
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "No existe camino entre el nodo inicial y el nodo final",
+          });
         return -1;
     }
 
