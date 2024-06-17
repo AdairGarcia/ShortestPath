@@ -74,5 +74,25 @@ document.getElementById('guardarDatos').addEventListener('click',
             }
             matrix.push(row);
         }
-        shortestDist(matrix,nodeCount);
+        const resultado = shortestDist(matrix,nodeCount);
+        const resultContainer = document.getElementById('resultado');
+        resultContainer.innerHTML = '';
+
+        const resultText = document.createElement('p');
+        resultText.textContent = `La distancia más corta es: ${resultado.distancia} km`;
+        resultContainer.appendChild(resultText);
+
+        const resultPath = document.createElement('p');
+        resultPath.textContent = `El camino óptimo es: `;
+        for(let i = 0; i < resultado.camino.length; i++){
+            if(!(resultado.camino[i] == null)){
+                if(resultado.camino[i + 1] == null){
+                    resultPath.textContent += `${resultado.camino[i]}`;
+                }else{
+                    resultPath.textContent += `${resultado.camino[i]} -> `;
+                }
+            }
+        }
+        resultContainer.appendChild(resultPath);
+
 });

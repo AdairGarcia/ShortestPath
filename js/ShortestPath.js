@@ -61,9 +61,12 @@ export function shortestDist(matrix,N)
         nodoActual = path[nodoActual];
     }
 
-    console.log(`Distancia más corta: ${dist[0]}`);
-    console.log(`Ruta más corta: ${caminoOptimo.join(' -> ')}`);
-    return dist[0];
+    const resultado = {
+        distancia: dist[0],
+        camino: caminoOptimo
+    }
+
+    return resultado;
 }
 
 
