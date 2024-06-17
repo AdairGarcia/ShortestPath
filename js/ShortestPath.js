@@ -1,13 +1,15 @@
 // JavaScript program to find shortest distance
 // in a multistage graph.
 
-let N = 8;
+
+
 let INF = Number.MAX_VALUE;
 
 // Returns shortest distance from 0 to
 // N-1.
-function shortestDist(graph)
+export function shortestDist(matrix,N)
 {
+
     // dist[i] is going to store shortest
     // distance from node i to node N-1.
     let dist = new Array(N);
@@ -29,7 +31,7 @@ function shortestDist(graph)
         for (let j = i; j < N; j++)
         {
             // Reject if no edge exists
-            if (graph[i][j] == INF)
+            if (isNaN(matrix[i][j]) || matrix[i][j] == INF)
             {
                 continue;
             }
@@ -38,22 +40,14 @@ function shortestDist(graph)
             // distance to target through j.
             // and compare with minimum distance
             // so far.
-            dist[i] = Math.min(dist[i], graph[i][j]
+            dist[i] = Math.min(dist[i], matrix[i][j]
                 + dist[j]);
         }
     }
-
+    // console.log(`distnacia más corta: ${dist[0]}`);
+    console.log(dist[0]);
     return dist[0];
 }
-
-let graph = [[INF, 1, 2, 5, INF, INF, INF, INF],
-    [INF, INF, INF, INF, 4, 11, INF, INF],
-    [INF, INF, INF, INF, 9, 5, 16, INF],
-    [INF, INF, INF, INF, INF, INF, 2, INF],
-    [INF, INF, INF, INF, INF, INF, INF, 18],
-    [INF, INF, INF, INF, INF, INF, INF, 13],
-    [INF, INF, INF, INF, INF, INF, INF, 2]];
-console.log(shortestDist(graph));
 
 
 // This code is contributed by rag2127

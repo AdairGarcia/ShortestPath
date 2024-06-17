@@ -1,3 +1,6 @@
+import { shortestDist } from './ShortestPath.js'
+
+
 document.getElementById('tablaForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const nodeCount = document.getElementById('nodoCount').value;
@@ -26,7 +29,7 @@ function generateTable(nodeCount) {
     table.appendChild(thead);
 
     // Crear filas de la tabla
-    for (let i = 1; i <= nodeCount - 1; i++) {
+    for (let i = 1; i <= nodeCount; i++) {
         const row = document.createElement('tr');
         for (let j = 0; j <= nodeCount; j++) {
             if (j === 0) {
@@ -52,5 +55,24 @@ function generateTable(nodeCount) {
 
     table.appendChild(tbody);
     tableContainer.appendChild(table);
+
+    // Mostrar botón para guardar datos
+    document.getElementById('guardarDatos').style.display = 'block';
 }
 
+document.getElementById('guardarDatos').addEventListener('click', 
+    function() {
+        const nodeCount = document.getElementById('nodoCount').value;
+        const matrix = [];
+
+        for (let i = 1; i <= nodeCount; i++) {
+            const row = [];
+            for (let j = 1; j <= nodeCount; j++) {
+                const input = document.querySelector(`input[name='node_${i}_${j}']`);
+                const value = input.value ? parseFloat(input.value) : Infinity; // Usar Infinity para representar la ausencia de conexión
+                row.push(value);
+            }
+            matrix.push(row);
+        }
+        shortestDist(matrix,nodeCount);
+});

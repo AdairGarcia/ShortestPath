@@ -1,3 +1,7 @@
 @import url(../bootstrap/css/bootstrap.css);
 
 /*Pendejadas propias*/
+.sp-button{
+    margin-top: 12%;
+    text-align: center;
+}
